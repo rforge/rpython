@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>R Package rPython</title>
+	<link href="http://r-forge.r-project.org/themes/rforge/styles/estilo1.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<!-- R-Forge Logo -->
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr><td>
+<a href="/"><img src="http://r-forge.r-project.org/themes/rforge/imagesrf/logo.png" border="0" alt="R-Forge Logo" /> </a> </td> </tr>
+</table>
+
+
+<h1>rPython R package</h1>
+
+<p>This package allows the user to call <a href="http://www.python.org">Python</a> from R. It is a natural extension of the <a href="http://rjython.r-forge.r-project.org/">rJython</a> package by the same author.
+
+<h3>What can be done with it?</h3>
+
+<p>rPython is intended for running Python code from R. R programs and packages can:</p>
+<ul>
+	<li>Pass data to Python: vectors of various types (logical, character, numeric,...), lists, etc.</li>
+	<li>Get data from Python.</li>
+	<li>Call Python code, call Python functions and methods.</li>
+</ul>
+
+<p>Here is a sample session with rPython:</p>
+
+<pre><code>
+python.call( "len", 1:3 )
+a <- 1:4
+b <- 5:8
+python.exec( "def concat(a,b): return a+b" )
+python.call( "concat", a, b)
+
+python.assign( "a",  "hola hola" )
+python.method.call( "a", "split", " " )
+</code></pre>
+
+<h3>Who may be interested in it?</h3>
+
+<p>Mainly, users and package developers who want to use functionalities available in Python but not in R.</p> 
+
+<p>There are many modules in Python which could easily extend R functionality if there would be a way to call Python code from R. </p> 
+
+<h3>How does this package relate to rpy and rpy2?</h3>
+
+<p><a href="http://rpy.sourceforge.net/">rpy</a> and <a href="http://rpy.sourceforge.net/rpy2">rpy2</a>, a redesign and rewrite of rpy, are Python interfaces to R. They allow users to call R from Python.</p>
+
+<p>rPython provides the opposite interface.</p> 
+
+<p>Besides, no code from rpy/rpy2 has been used in the development of rPython.</p> 
+
+<h3>How does rPython work?</h3>
+
+<p>One of the most daunting tasks in building an interface between two languages is provide mechanisms for exchanging different data structures between them. rPython uses <a href="http://www.json.org">json</a>:
+<ol>
+	<li>R/Python objects are dumped into json strings using their respective parsers (<a href="http://cran.r-project.org/web/packages/RJSONIO/index.html">RJSONIO</a> and <a href="http://pypi.python.org/pypi/simplejson/">simplejson</a>) respectively.</li>
+	<li>These strings are passed between the two languages using their string exchange mechanisms.</li>
+	<li>json strings are finally reconstructed into language objects on the other side.</li>
+</ol>
+
+<p>This simple mechanism allow R and Python exchange relatively complex data structures with ease.</p> 
+
+
+<h3>Further info</h3>
+
+<p>The project summary page can be found <a href="http://r-forge.r-project.org/projects/rpython/">here</a>. 
+
+<p>The package has been developed by <a href="http://www.datanalytics.com">Carlos J. Gil Bellosta</a> and is based on a previous package, <a href="http://rjython.r-forge.r-project.org/">rJython</a>, by the same author together with G. Grothendieck.</p>
+
+</body>
+</html>
+
+
