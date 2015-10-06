@@ -69,14 +69,15 @@ python.method.call( "a", "split", " " )
 
 <h3>Installation</h3>
 
-<p>The package can be installed via</p>
+<p>The package can be installed from CRAN:</p>
 
-<code>install.packages("rPython", repos = "http://www.datanalytics.com/R") </code>
+<code>install.packages("rPython") </code>
 
-<p>as source package. This approach should work on Linux and other UNIX-like platforms, such as Mac, but would fail on Windows.
-In fact, so far, the author has been unable to find a reliable way to locate the required Python files on a Windows platform.</p>
+<p>This should on Linux and other UNIX-like platforms, such as Mac, but would fail on Windows. Windows users may want to check <a href="https://github.com/cjgb/rPython-win">rPython-win</a>.</p>
 
-<p>Help in this regard would be highly appreciated.</p>
+<p>Some users want to use rPython using ad hoc Python installations (e.g., Anaconda) or in virtualenvs. It often fails.</p>
+
+<p>Also, it is possible to install rPython to use it on a system installation different from the default one (e.g., Python 3.2 on a system where the default installation is 2.7). It is possible to do so: read the INSTALLATION file contained within the package.</p>
 
 
 <h3>Further info</h3>
